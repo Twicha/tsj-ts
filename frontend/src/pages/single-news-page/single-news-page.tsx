@@ -31,7 +31,7 @@ export const SingleNewsPage: React.FC<Props> = ({ match }): React.ReactElement =
 
     console.log(item);
 
-    const posted = item && postedTime(item.createdAt);
+    const posted = item && postedTime(item.createdAt, true);
 
     return (
         <div>

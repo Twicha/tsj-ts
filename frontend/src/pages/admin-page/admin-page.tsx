@@ -85,7 +85,7 @@ export const AdminPage: React.FC<Props> = (): React.ReactElement => {
                                         <h2 className="text">{item.title}</h2>
                                         <small className="text">
                                             Опубликовано&nbsp;
-                                            {postedTime(item.createdAt)}
+                                            {postedTime(item.createdAt, true)}
                                         </small>
                                     </div>
                                     <div>
