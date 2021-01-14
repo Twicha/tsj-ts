@@ -7,6 +7,52 @@ import {
     selectNewsStatus,
 } from "../../shared/store/ducks/news/selectors";
 import { Loader, NewsCard } from "../../shared/ui/atoms";
+import { Slider } from "../../shared/ui/organisms";
+
+const sliderItems = [
+    {
+        title: "Тарифы 2021 г.",
+        text: "Актуальная информация по тарифам на ЖКХ",
+        _id: "5fff5da565fac540bc92d8b1",
+        imgUrl:
+            "https://images.unsplash.com/photo-1594907841536-e747e8df5b2e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    },
+    {
+        title: "Ограницения для проездных",
+        text: "Ограничения для проездных в общественном транспорте с 1 февраля 2021 г.",
+        _id: "5fff5e9b65fac540bc92d8b2",
+        imgUrl:
+            "https://images.unsplash.com/photo-1520105072000-f44fc083e508?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1489&q=80",
+    },
+    {
+        title: "Цены на товары",
+        text: "Повышение цен на все категории товаров в 2021 г.",
+        _id: "5fff5da565fac540bc92d8b3",
+        imgUrl:
+            "https://images.unsplash.com/photo-1610589359059-9c2ca412758b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=645&q=80",
+    },
+    {
+        title: "Ограницения для проездных",
+        text: "Ограничения для проездных в общественном транспорте с 1 февраля 2021",
+        _id: "5fff5e9b65fac540bc92d8b4",
+        imgUrl:
+            "https://images.unsplash.com/photo-1610579604920-01af0b6cae50?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80",
+    },
+    {
+        title: "Тарифы 2020",
+        text: "Актуальная информация по тарифам",
+        _id: "5fff5da565fac540bc92d8b5",
+        imgUrl:
+            "https://images.unsplash.com/photo-1610576243540-afb3a3b17701?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    },
+    {
+        title: "Ограницения для проездных",
+        text: "Ограничения для проездных в общественном транспорте с 1 февраля 2021",
+        _id: "5fff5e9b65fac540bc92d8b6",
+        imgUrl:
+            "https://images.unsplash.com/photo-1610572624680-66b7e021f299?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    },
+];
 
 interface Props {}
 
@@ -39,27 +85,30 @@ export const HomePage: React.FC<Props> = (): React.ReactElement => {
 
     return (
         <div>
-            {status === "loading" && (
-                <LoaderWrapperStyles>
-                    <Loader />
-                </LoaderWrapperStyles>
-            )}
-            {status === "loaded" && (
-                <ListStyles>
-                    {items &&
-                        items.map((item) => {
-                            return (
-                                <NewsCard
-                                    key={item._id}
-                                    _id={item._id}
-                                    title={item.title}
-                                    createdAt={item.createdAt}
-                                />
-                            );
-                        })}
-                </ListStyles>
-            )}
-            {status === "error" && <span className="text">Произошла ошибка...</span>}
+            <Slider items={sliderItems} />
+            <div>
+                {status === "loading" && (
+                    <LoaderWrapperStyles>
+                        <Loader />
+                    </LoaderWrapperStyles>
+                )}
+                {status === "loaded" && (
+                    <ListStyles>
+                        {items &&
+                            items.map((item) => {
+                                return (
+                                    <NewsCard
+                                        key={item._id}
+                                        _id={item._id}
+                                        title={item.title}
+                                        createdAt={item.createdAt}
+                                    />
+                                );
+                            })}
+                    </ListStyles>
+                )}
+                {status === "error" && <span className="text">Произошла ошибка...</span>}
+            </div>
         </div>
     );
 };

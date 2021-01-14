@@ -2,7 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { postedTime } from "../../helpers/posted-time";
-import { requestSingleNews } from "../../shared/store/ducks/single-news/actionCreators";
+import {
+    cleanSingleNews,
+    requestSingleNews,
+} from "../../shared/store/ducks/single-news/actionCreators";
 import {
     selectSingleNewsItem,
     selectSingleNewsStatus,
@@ -27,9 +30,11 @@ export const SingleNewsPage: React.FC<Props> = ({ match }): React.ReactElement =
 
     React.useEffect(() => {
         dispatch(requestSingleNews(id));
-    }, [dispatch, id]);
 
-    console.log(item);
+        return () => {
+            dispatch(cleanSingleNews());
+        };
+    }, [dispatch, id]);
 
     const posted = item && postedTime(item.createdAt, true);
 

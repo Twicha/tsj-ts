@@ -19,6 +19,7 @@ const LinkStyles = styled(Link)``;
 
 const TitleStyles = styled.h2`
     margin-bottom: 7px;
+    word-wrap: break-word;
 `;
 
 const TimestampStyles = styled.small`
