@@ -14,11 +14,12 @@ export interface CleanNewsActionInterface extends Action<NewsActionsType> {
 
 export interface RequestNewsActionInterface extends Action<NewsActionsType> {
     type: NewsActionsType.REQUEST_NEWS;
+    payload: string;
 }
 
 export interface SuccessNewsActionInterface extends Action<NewsActionsType> {
     type: NewsActionsType.SUCCESS_NEWS;
-    payload: NewsState["items"] | null;
+    payload: NewsState | null;
 }
 
 export interface FailureNewsActionInterface extends Action<NewsActionsType> {

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { NavigationLink } from "../../atoms";
+import { NavigationLink } from "..";
 
 const links = [
     { exact: true, to: "/", title: "Главная" },
@@ -11,7 +11,7 @@ const links = [
 
 interface Props {
     active: boolean;
-    onClick: () => void;
+    onClick: (e: any) => void;
 }
 
 const NavigationListStyles = styled.ul<{ active: boolean }>`

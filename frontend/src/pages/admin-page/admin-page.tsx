@@ -58,15 +58,15 @@ export const AdminPage: React.FC<Props> = (): React.ReactElement => {
     const items = useSelector(selectNewsItems);
     const newsStatus = useSelector(selectNewsStatus);
 
-    React.useEffect(() => {
-        document.title = "ТСЖ Книжное | Административная панель";
+    // React.useEffect(() => {
+    //     document.title = "ТСЖ Книжное | Административная панель";
 
-        dispatch(requestNews());
+    //     dispatch(requestNews());
 
-        return () => {
-            dispatch(cleanNews());
-        };
-    }, [dispatch]);
+    //     return () => {
+    //         dispatch(cleanNews());
+    //     };
+    // }, [dispatch]);
 
     return (
         <React.Fragment>

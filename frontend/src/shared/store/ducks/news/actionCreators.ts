@@ -11,11 +11,12 @@ export const cleanNews = (): CleanNewsActionInterface => ({
     type: NewsActionsType.CLEAN_NEWS,
 });
 
-export const requestNews = (): RequestNewsActionInterface => ({
+export const requestNews = (payload: string): RequestNewsActionInterface => ({
     type: NewsActionsType.REQUEST_NEWS,
+    payload: payload,
 });
 
-export const successNews = (payload: NewsState["items"]): SuccessNewsActionInterface => ({
+export const successNews = (payload: NewsState): SuccessNewsActionInterface => ({
     type: NewsActionsType.SUCCESS_NEWS,
     payload: payload,
 });

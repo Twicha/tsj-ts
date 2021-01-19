@@ -1,35 +1,36 @@
-import { NewsActions } from "./actionCreators";
-import { NewsActionsType } from "./actionTypes";
-import { NewsState } from "./type";
+import { HomeNewsActions } from "./actionCreators";
+import { HomeNewsActionsType } from "./actionTypes";
+import { HomeNewsState } from "./type";
 
-const initialNewsState: NewsState = {
+const initialHomeNewsState: HomeNewsState = {
     items: null,
     status: "never",
-    totalNewsCount: null,
-    totalPageCount: null,
 };
 
-export const newsReducer = (state = initialNewsState, action: NewsActions) => {
+export const homeNewsReducer = (
+    state = initialHomeNewsState,
+    action: HomeNewsActions
+) => {
     switch (action.type) {
-        case NewsActionsType.CLEAN_NEWS:
+        case HomeNewsActionsType.CLEAN_HOME_NEWS:
             return {
                 ...state,
                 items: null,
                 status: "never",
             };
-        case NewsActionsType.REQUEST_NEWS:
+        case HomeNewsActionsType.REQUEST_HOME_NEWS:
             return {
                 ...state,
                 items: null,
                 status: "loading",
             };
-        case NewsActionsType.SUCCESS_NEWS:
+        case HomeNewsActionsType.SUCCESS_HOME_NEWS:
             return {
                 ...state,
+                items: action.payload,
                 status: "loaded",
-                ...action.payload,
             };
-        case NewsActionsType.FAILURE_NEWS:
+        case HomeNewsActionsType.FAILURE_HOME_NEWS:
             return {
                 ...state,
                 status: "error",

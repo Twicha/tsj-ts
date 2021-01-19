@@ -8,3 +8,6 @@ export const selectNewsItems = (state: RootState): NewsState["items"] =>
 
 export const selectNewsStatus = (state: RootState): NewsState["status"] =>
     selectNews(state).status;
+
+export const selectNewsPage = (state: RootState): NewsState["totalPageCount"] =>
+    selectNews(state).totalPageCount;

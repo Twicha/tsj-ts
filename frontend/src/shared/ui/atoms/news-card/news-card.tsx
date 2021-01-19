@@ -13,6 +13,10 @@ const NewsCardStyles = styled.li`
     margin-bottom: 30px;
     max-width: 100%;
     list-style: none;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 `;
 
 const LinkStyles = styled(Link)``;

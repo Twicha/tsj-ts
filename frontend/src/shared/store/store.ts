@@ -1,5 +1,6 @@
 import { applyMiddleware, compose, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
+import { HomeNewsState } from "./ducks/home/type";
 import { NewsState } from "./ducks/news/type";
 import { SingleNewsState } from "./ducks/single-news/type";
 import { ThemeState } from "./ducks/theme/type";
@@ -20,6 +21,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 export interface RootState {
     theme: ThemeState;
+    home: HomeNewsState;
     news: NewsState;
     singleNews: SingleNewsState;
 }

@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { YMaps, Map, Placemark, ZoomControl } from "react-yandex-maps";
 import styled from "styled-components";
-import { selectTypeTheme } from "../../../store/ducks/theme/selectors";
-import { Loader } from "../../atoms";
+import { selectTypeTheme } from "../../../../shared/store/ducks/theme/selectors";
+import { Loader } from "../../../../shared/ui/atoms";
 
 interface Props {}
 

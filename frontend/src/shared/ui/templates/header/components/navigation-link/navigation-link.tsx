@@ -5,7 +5,7 @@ import styled from "styled-components";
 interface Props {
     to: string;
     exact?: boolean;
-    onClick: () => void;
+    onClick: (e: any) => void;
 }
 
 const Wrapper = styled.li`

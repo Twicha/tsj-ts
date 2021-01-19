@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { scrollTop } from "../../../../helpers/scroll-top";
 import { toggleTheme } from "../../../store/ducks/theme/actionCreators";
 import { selectTypeTheme } from "../../../store/ducks/theme/selectors";
-import { Logo, MobileMenuButton, Switcher } from "../../atoms";
-import { NavigationList } from "../../molecules";
 import { darkTheme, lightTheme } from "../../theme/theme";
+import { Logo, MobileMenuButton, NavigationList, Switcher } from "./components";
 
 interface Props {}
 
@@ -28,10 +28,11 @@ const Wrapper = styled.div`
 `;
 
 export const Header: React.FC<Props> = (): React.ReactElement => {
-    const [activeMenu, setActiveMenu] = React.useState(false);
     const dispatch = useDispatch();
+    const history = useHistory();
     const theme = useSelector(selectTypeTheme);
     const checked = theme === "light";
+    const [activeMenu, setActiveMenu] = React.useState(false);
 
     const switchTheme = (): void => {
         if (checked) {
@@ -59,9 +60,14 @@ export const Header: React.FC<Props> = (): React.ReactElement => {
         });
     };
 
-    const onClickMenuItems = () => {
+    const onClickMenuItems = (e: any) => {
         if (document.documentElement.clientWidth < 1150) {
             setActiveMenu(false);
+        }
+
+        if (e.target.pathname === history.location.pathname) {
+            scrollTop(0, "smooth");
+        } else {
             scrollTop();
         }
     };

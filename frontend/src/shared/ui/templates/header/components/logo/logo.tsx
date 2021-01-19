@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface Props {
-    onClick: () => void;
+    onClick: (e: any) => void;
 }
 
 const LogoStyles = styled(Link)`

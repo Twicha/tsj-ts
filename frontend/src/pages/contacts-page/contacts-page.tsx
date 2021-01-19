@@ -1,17 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { YandexMap } from "../../shared/ui/organisms";
+import { BlockTitle } from "../../shared/ui/atoms";
+import { YandexMap } from "./components";
 
 interface Props {}
-
-const HeadingStyles = styled.h1`
-    font-weight: 500;
-    font-size: 28px;
-
-    @media (max-width: 480px) {
-        font-size: 24px;
-    }
-`;
 
 const ListStyles = styled.ul`
     margin: 20px 0;
@@ -58,7 +50,7 @@ export const ContactsPage: React.FC<Props> = (): React.ReactElement => {
 
     return (
         <div>
-            <HeadingStyles className="text">Контактрая информация:</HeadingStyles>
+            <BlockTitle>Контактрая информация:</BlockTitle>
             <ListStyles>
                 <ListItemStyles className="text">
                     Наш адрес:&nbsp;
